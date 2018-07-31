@@ -1,0 +1,55 @@
+<div class="wrapper" ng-controller="DailyHoroCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1> Daily Horoscope </h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title"> Daily Horoscope</h3>
+                        </div>
+                        <div class="box-body">
+                            <form name=" dailyHoroscopeForm" class="form-horizontal submit-form" action="" method="post" ng-submit="" id="dailyHoroscopeForm">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Zodiac</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="zodiac" id="zodiac"  ng-model="zodiac" value="{{zodiac}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="dailyHoroscopeForm.zodiac.$touched && dailyHoroscopeForm.zodiac.$error.required">minimum 6 character required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group" >
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Details</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="details" id="details" ng-model="details" value="{{details}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="dailyHoroscopeForm.details.$touched && dailyHoroscopeForm.details.$error.required">minimum 6 character required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group" >
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Date</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="date" id="date" ng-model="date" value="{{date}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="dailyHoroscopeForm.date.$touched && dailyHoroscopeForm.date.$error.required">Date Is required.</span>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                    <button type="button" class="btn btn-default" ng-click="goToHoroscopeList();">Cancel</button>
+                                    <button type="submit" class="btn btn-info pull-right" ng-disabled="dailyHoroscopeForm.$invalid">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

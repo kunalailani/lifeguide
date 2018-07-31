@@ -1,0 +1,46 @@
+<div class="wrapper" ng-controller="dashboardCtrl">
+   <header class="main-header">
+      <div ng-include="'content/includes/top-bar.html'"></div>
+   </header>
+   <aside class="main-sidebar">
+      <section class="sidebar">
+         <div ng-include="'content/includes/leftbar.html'"></div>
+      </section>
+   </aside>
+   <div class="content-wrapper">
+      <section class="content-header">
+         <h1>
+            Dashboard
+            <small>Control panel</small>
+         </h1>
+         <ol class="breadcrumb">
+            <li><a href="javascript:void(0)"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+         </ol>
+      </section>
+      <section class="content">
+         <div class="row">
+         </div>
+      </section>
+   </div>
+   <div ng-include="'content/includes/footer.html'"></div>
+</div>
+<script src="assets/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script>
+   $.widget.bridge('uibutton', $.ui.button);
+</script>
+<script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="assets/bower_components/raphael/raphael.min.js"></script>
+<script src="assets/bower_components/morris.js/morris.min.js"></script>
+<script src="assets/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<script src="assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<script src="assets/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+<script src="assets/bower_components/moment/min/moment.min.js"></script>
+<script src="assets/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script src="assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="assets/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="assets/dist/js/pages/dashboard.js"></script>
+<script src="assets/dist/js/demo.js"></script>

@@ -1,0 +1,104 @@
+<div class="wrapper" ng-controller="addUserCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Add User Details</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Add User Details</h3>
+                        </div>
+                        <div class="box-body">
+                            <form name="addUserForm" class="form-horizontal submit-form" action="" method="post" ng-submit="saveUser();" id="addUserForm">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="name" ng-minlength="8" id="name" ng-model="name" value="{{name}}" ng-required="true"
+                                        />
+                                        <span class="text-danger" ng-show="addUserForm.name.$touched && addUserForm.name.$error.required">First name is required.</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" name="email" id="email" ng-model="email" value="{{email}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="addUserForm.email.$touched && (addUserForm.email.$error.email || addUserForm.email.$error.required)">Please enter valid email id.</span>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">gender</label>
+                                    <div class="col-sm-10">
+                                        <label>
+                                            <input type="radio" name="gender" class="form-control" id="gender" value="Male" ng-model="gender" /> Male
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="gender" class="form-control" id="gender" value="Female" ng-model="gender" /> Female
+                                        </label>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" ng-if="id == ''">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Date Of Birth </label>
+                                    <div class="col-sm-10">
+                                        <input type="date" class="form-control" id="dob" ng-model="dob" pattern="dd/MM/YYYY" valueAsDate="{{dob}}" ng-required="true"
+                                        />
+                                        <span class="text-danger" ng-show="addUserForm.dob.$touched && addUserForm.dob.$error.required">DOB is required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-if="id == ''">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Zodiac</label>
+                                    <div class="col-sm-10">
+                                        <input type="test" class="form-control" name="zodiac" id="zodiac" ng-model="zodiac" value="{{zodiac}}" ng-required="true"
+                                        />
+                                        <span class="text-danger" ng-show="addUserForm.zodiac.$error.compareTo && addUserForm.zodiac.$touched">zodiac is required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-if="id == ''">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Nationality</label>
+                                    <div class="col-sm-10">
+                                        <input type="test" class="form-control" name="nationality" id="nationality" ng-model="nationality" value="{{nationality}}"
+                                            ng-required="true" />
+                                        <span class="text-danger" ng-show="addUserForm.nationality.$error.compareTo && addUserForm.nationality.$touched">Nationality is required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-if="id == ''">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Device type</label>
+                                    <div class="col-sm-10">
+                                        <input type="test" class="form-control" name="device_type" id="device_type" ng-model="device_type" value="{{device_type}}"
+                                            ng-required="true" />
+                                        <span class="text-danger" ng-show="addUserForm.device_type.$error.compareTo && addUserForm.device_type.$touched">Device type is required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-if="id == ''">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Device Id</label>
+                                        <div class="col-sm-10">
+                                            <input type="test" class="form-control" name="device_id" id="device_id" ng-model="device_id" value="{{device_id}}"
+                                                ng-required="true" />
+                                            <span class="text-danger" ng-show="addUserForm.device_id.$error.compareTo && addUserForm.device_id.$touched">Device Id  is required.</span>
+                                        </div>
+                                    </div>
+                                <div class="box-footer">
+                                    <button type="button" class="btn btn-default" ng-click="goToUserList();">Cancel</button>
+                                    <button type="submit" class="btn btn-info pull-right" ng-disabled="addUserForm.$invalid">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

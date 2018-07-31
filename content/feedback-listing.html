@@ -1,0 +1,60 @@
+﻿<div class="wrapper" ng-controller="feedbackCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Feedback <small>Listing</small></h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Feedback Listing</h3>
+                        </div>
+                        <div class="box-body">
+                            <table id="feedbackListing" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Name</th>
+                                        <th>Feedback</th>
+                                        <th>View</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--<tr ng-repeat="t in test">
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{t.name}}</td>
+                                        <td>{{t.feedback}} months</td>
+                                        <td>{{t.view}}</td>
+                                        <td>
+                                            <a href="#/edit-question?id={{t._id}}"><i class="fa fa-pencil" data-id="{{t._id}}"></i></a>
+                                        </td>
+                                    </tr>-->
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+
+                                        <!-- <th ng-repeat="x in dataListTitles">{{x}}</th> -->
+                                        <th></th>
+                                        <th>Name</th>
+                                        <th>Feedback</th>
+                                        <th>View</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div ng-include="'content/includes/footer.html'"></div>
+</div>

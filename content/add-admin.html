@@ -1,0 +1,83 @@
+﻿<div class="wrapper" ng-controller="subAdminCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1> Save Admin Details </h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Save Admin Details</h3>
+                        </div>
+                        <div class="box-body">
+                            <form name="subAdminForm" class="form-horizontal submit-form" action="admin/sub-admin/save/" method="post" ng-submit="saveSubAdmin();" id="subAdminForm">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Full Name</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="full_name" id="full_name" ng-model="full_name" value="{{full_name}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="subAdminForm.full_name.$touched && subAdminForm.full_name.$error.required">Full name is required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-10">
+                                       <input type="email" class="form-control" name="email" id="email" ng-model="email" value="{{email}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="subAdminForm.email.$touched && (subAdminForm.email.$error.email || subAdminForm.email.$error.required)">Please enter valid email id.</span>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                 <div class="form-group" ng-if="id == ''">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" name="password" id="password" ng-minlength="6" ng-model="user.password" value="{{password}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="subAdminForm.password.$touched && subAdminForm.password.$error.required">minimum 6 character required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-if="id == ''">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Confirm Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" name="confirm_password" id="confirm_password" ng-model="user.confirm_password" value="{{confirm_password}}" ng-required="true" compare-to="user.password"/>
+                                        <span class="text-danger" ng-show="subAdminForm.confirm_password.$error.compareTo && subAdminForm.confirm_password.$touched">Password doesn't match.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Type</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="type" id="type" ng-model="type" ng-required="true">
+                                            <option value="super_admin">Super Admin</option>
+                                            <option value="editor">Editor</option>
+                                        </select>
+                                        <span class="text-danger" ng-show="subAdminForm.type.$touched && subAdminForm.type.$error.required">Type required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Status</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="status" id="status" ng-model="status" ng-required="true">
+                                            <option value="active">Active</option>
+                                            <option value="inactive">InActive</option>
+                                        </select>
+                                        <span class="text-danger" ng-show="subAdminForm.status.$touched && subAdminForm.status.$error.required">Status required.</span>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                 <button type="button" class="btn btn-default" ng-click="goToAdminList();">Cancel</button>
+                                 <button type="submit" class="btn btn-info pull-right" ng-disabled="subAdminForm.$invalid">Save</button>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+<div class="wrapper" ng-controller="AgentCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1> Save Agent Details </h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Save Agent Details</h3>
+                        </div>
+                        <div class="box-body">
+                            <form name="AgentForm" class="form-horizontal submit-form"  enctype="mutlipart/form-data" action="admin/agent/save/" method="post" ng-submit="saveAgent();" id="AgentForm">
+                                <input type="hidden"  ng-model="id" name="id" id="id" value="{{id}}"/>
+                                 <input type="hidden"  ng-model="password" name="password" id="password" value="{{password}}"/>
+                                   <input type="hidden"  ng-model="role" name="role" id="role" value="agent"/>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Full Name</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="full_name" id="full_name" ng-model="full_name" value="{{full_name}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="AgentForm.full_name.$touched && AgentForm.full_name.$error.required">Full name is required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Company Name</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="company_name" id="company_name" ng-model="company_name" value="{{company_name}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="AgentForm.company_name.$touched && AgentForm.company_name.$error.required">Company Name is required</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Company Logo</label>
+                                    <div class="col-sm-10">
+                                       <input type="file" class="form-control" name="logo_url" id="logo_url" ng-model="logo_url" value="{{logo}}" onchange="readURL(this);" />
+                                        <span class="text-danger" ng-show="AgentForm.logo.$touched && AgentForm.logo.$error.required">Company Logo is required</span>
+                                        <img src="" id="preview-image" />
+                                        <input type="hidden" name="logo" id="logo" value="{{logo}}" />
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Address</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="address" id="address" ng-model="address" value="{{address}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="AgentForm.address.$touched && (AgentForm.address.$error.address || AgentForm.address.$error.required)">Please enter valid address.</span>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-10">
+                                       <input type="email" class="form-control" name="email" id="email" ng-model="email" value="{{email}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="AgentForm.email.$touched && (AgentForm.email.$error.email || AgentForm.email.$error.required)">Please enter valid email id.</span>
+                                        <span class="text-danger"></span>
+                                        <span class="text-danger email-exists error-msg"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Phone Number</label>
+                                    <div class="col-sm-10">
+                                       <input type="number" class="form-control" min="0" name="phone_number" id="phone_number" ng-model="phone_number" value="{{phone_number}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="AgentForm.phone_number.$touched && (AgentForm.phone_number.$error.phone_number || AgentForm.phone_number.$error.required)">Please enter valid phone number.</span>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Status</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="status" id="status" ng-model="status" ng-required="true">
+                                            <option value="active">Active</option>
+                                            <option value="inactive">InActive</option>
+                                        </select>
+                                        <span class="text-danger" ng-show="AgentForm.status.$touched && AgentForm.status.$error.required">Status required.</span>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                 <button type="button" class="btn btn-default" ng-click="goToAgentList();">Cancel</button>
+                                 <button type="submit" class="btn btn-info pull-right" ng-disabled="AgentForm.$invalid">Save</button>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script type="text/javascript">
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $('#preview-image').attr('src', e.target.result);
+          $("#logo").val(e.target.result);  
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+</script>

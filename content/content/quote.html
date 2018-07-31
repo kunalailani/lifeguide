@@ -1,0 +1,84 @@
+<div class="wrapper" ng-controller="quoteCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Quote</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Quote</h3>
+                        </div>
+                        <div class="box-body">
+                            <form name="quoteForm" class="form-horizontal submit-form" action="" method="post" ng-submit="" id="quoteForm">
+                                <div class="form-group" >
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Details</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="details" id="details" ng-model="details" value="{{details}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="quoteForm.details.$touched && quoteForm.details.$error.required">Details required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group" >
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Author</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="author" id="author" ng-model="author" value="{{author}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="quoteForm.author.$touched && quoteForm.author.$error.required">Author required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group" >
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Code1</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="code1" id="code1" ng-model="code1" value="{{code1}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="quoteForm.code1.$touched && quoteForm.code1.$error.required">code1 required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group" >
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Code2</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="code2" id="code2" ng-model="code2" value="{{code2}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="quoteForm.code2.$touched && quoteForm.code2.$error.required">code2 required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group" >
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Code3</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="code3" id="code3" ng-model="code3" value="{{code3}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="quoteForm.code3.$touched && quoteForm.code3.$error.required">code3 required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group" >
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Admin id</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="admin_id" id="admin_id" ng-model="admin_id" value="{{admin_id}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="quoteForm.admin_id.$touched && quoteForm.admin_id.$error.required">adminid required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group" >
+                                    <label for="inputEmail3" class="col-sm-2 control-label">device_id</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="device_id" id="device_id" ng-model="device_id" value="{{device_id}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="quoteForm.device_id.$touched && quoteForm.device_id.$error.required">device_id required.</span>
+                                    </div>
+                                </div>
+                               
+                                <div class="box-footer">
+                                    <button type="button" class="btn btn-default" ng-click="goToQuoteList();">Cancel</button>
+                                    <button type="submit" class="btn btn-info pull-right" ng-disabled="quoteForm.$invalid">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

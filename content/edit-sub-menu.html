@@ -1,0 +1,58 @@
+<div class="wrapper" ng-controller="subMenusCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Save Sub Menus</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Pages</h3>
+                        </div>
+                        <div class="box-body">
+                        	<ul id="sortable-left">
+                              <li class="ui-state-default menusListsOrder"  ng-repeat="t in AppPages"  data-id="{{t._id}}"></span>{{t.title}}
+                              	<i class="fa fa-plus add-page" data-id="{{t._id}}" data-title="{{t.title}}" style="float: right;"></i>
+                              </li>
+                            </ul>
+                        </div>
+                        <div class="box-footer">
+                        	 <button type="button" class="btn btn-default">
+                                <a href="#/parent-menu">Go back</a></button>	
+                        </div>	
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Menus</h3>
+                            <ul id="sortable-right">
+                            	<li class="ui-state-default menusListsOrder" ng-repeat="t in MenuPage"   data-id="{{t._id}}"></span>{{t.title}}<i class="fa fa-minus remove-page" data-id="{{t._id}}" data-title="{{t.title}}" style="float: right;"></i></li>
+                            </ul>	
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </section>
+    </div>
+</div>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style type="text/css">
+    li.menusListsOrder{
+    list-style: none;
+    font-size: large;
+    border: 1px solid;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    cursor: move;
+}
+</style>

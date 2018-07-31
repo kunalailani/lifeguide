@@ -1,0 +1,90 @@
+﻿<div class="wrapper" ng-controller="pageCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Save Page</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Save Page</h3>
+                        </div>
+                        <div class="box-body">
+                            <form name="languageForm" class="form-horizontal submit-form ng-pristine ng-invalid ng-invalid-required" action="admin/pages/save/" method="post" ng-submit="savePage();" id="pageFormInfro">
+                                <input type="hidden" name="id" id="id" value="{{id}}">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="title" id="title" ng-model="title">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Type</label>
+                                    <div class="col-sm-10">
+                                        <input type="radio" name="type" ng-model="type" value="page">Page
+                                        <input type="radio" name="type" ng-model="type" value="app_page">Application Page
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Slug</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="slug" id="slug" ng-model="slug">
+                                       <span class="error-msg text-danger"></span> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Content</label>
+                                    <div class="col-sm-10">
+                                       <textarea id="content" name="content" ng-model="content" rows="10" cols="80">{{content}}</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Meta Title</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="meta_title" id="meta_title" ng-model="meta_title">
+                                       <span class="error-msg text-danger"></span> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Meta Description</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="meta_description" id="meta_description" ng-model="meta_description">
+                                       <span class="error-msg text-danger"></span>  
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Meta Keyword</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="meta_keyword" id="meta_keyword" ng-model="meta_keyword">
+                                       <span class="error-msg text-danger"></span> 
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                 <button type="button" class="btn btn-default" ng-click="goToPageList();">Cancel</button>
+                                 <button type="submit"  class="btn btn-info pull-right" ng-disabled="languageForm.$invalid" disabled="disabled">Save</button>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="assets/bower_components/ckeditor/ckeditor.js"></script>
+<script>
+  $(function () {
+    setTimeout(function(){ CKEDITOR.replace('content')
+    $('.textarea').wysihtml5() }, 500);
+    
+  })
+</script>

@@ -1,0 +1,148 @@
+<div class="wrapper" ng-controller="propertyCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Property</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+               	<div class="col-md-6">  
+          <!-- /.box -->
+
+          <!-- About Me Box -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Details</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <strong>Name</strong>
+              <p class="text-muted ng-binding">
+                {{propertyDetails.name}}
+              </p>
+              <hr>
+              <strong>Description</strong>
+              <p class="text-muted ng-binding">{{propertyDetails.description}}</p>
+              <hr>
+
+              <strong>Uploaded By</strong>
+              <p>
+                <span class="text-muted ng-binding">{{propertyDetails.user_id.full_name}}</span>
+              </p>
+              <hr>
+              <strong>Purchase Price</strong>
+              <p class="text-muted ng-binding">{{propertyDetails.purchase_price}}</p>
+            	<div class="beds">
+            		<strong>Bedroom</strong>
+              		<p class="text-muted ng-binding">{{propertyDetails.bedroom}}</p>
+            	</div>
+            	<div class="beds">
+            		<strong>Bathroom</strong>
+              		<p class="text-muted ng-binding">{{propertyDetails.bathroom}}</p>
+            	</div>
+            	<div class="beds">
+            		<strong>kitchen</strong>
+              		<p class="text-muted ng-binding">{{propertyDetails.kitchens}}</p>
+            	</div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Approval</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <form name="PropApprForm" class="form-horizontal submit-form" action="admin/property/status" method="post" ng-submit="PropAppr();" id="PropAppr">
+                <input type="hidden" ng-model="property_id" name="property_id" value="{{propertyDetails._id}}">
+              <div class="form-group">
+                  <label for="is_approved" class="col-sm-2 control-label">Approval Status</label>
+                  <div class="col-sm-10">
+                      <select class="form-control" name="is_approved" id="is_approved" ng-model="is_approved" ng-required="true">
+                          <option value="pending">Pending</option>
+                          <option value="approved">Approved</option>
+                          <option value="rejected">Rejected</option>
+                      </select>
+                      <span class="text-danger" ng-show="PropAppr.status.$touched && PropAppr.status.$error.required">Approval Status required.</span>
+                  </div>
+              </div>
+              <div class="box-footer">
+                   <button type="submit" class="btn btn-info pull-right" ng-disabled="PropAppr.$invalid">Save</button>
+              </div>
+              </form>
+            </div>
+            <!-- /.box-body -->
+          </div>
+         </div>
+
+         <div class="col-md-6">  
+          <!-- /.box -->
+
+          <!-- About Me Box -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Facilities</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <strong>Heating</strong>
+              <p class="text-muted ng-binding">{{propertyDetails.heating}}</p>
+              <hr>
+              <strong>Free Wi-FI</strong>
+              <p class="text-muted ng-binding"></p>
+              <hr>
+              <strong>Cellar</strong>
+              <p class="text-muted ng-binding">{{propertyDetails.has_cellar}}</p>
+              <hr>
+              <strong>Parking</strong>
+              <p class="text-muted ng-binding">{{propertyDetails.garages}}</p>
+              <hr>
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+          
+         </div>
+
+         <div class="col-md-12">  
+          <!-- /.box -->
+
+          <!-- About Me Box -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Property Images</h3>
+            <div class="col-md-3"  ng-repeat="t in propertyDetails.property_images"><img style="height: 300px;width: 300px" src="http://35.154.179.46:8080/property-details/{{t}}"/></div>
+            </div>
+              
+          </div>
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Floor pan Images</h3>
+            </div>
+              <div class="col-md-3"  ng-repeat="t in propertyDetails.floor_pan_images"><img style="height: 300px;width: 300px" src="http://35.154.179.46:8080/property-details/{{t}}"/></div>		
+          </div>
+          </div>
+         </div>
+
+
+            </div>
+        </section>
+    </div>
+</div>
+<style>
+	.beds{
+		display: inline-block;
+		margin: 10px;
+	}
+</style>
+<script src="assets/bower_components/ckeditor/ckeditor.js"></script>
+<script>
+  $('#PropApprForm')
+</script>

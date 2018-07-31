@@ -1,0 +1,59 @@
+﻿<div class="wrapper" ng-controller="questionCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1> Question Language </h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Question Language</h3>
+                        </div>
+                        <div class="box-body">
+                            <form name="saveQuestionForm" class="form-horizontal submit-form" action="admin/question/save/" method="post" ng-submit="saveQuestion();" id="saveQuestionForm">
+                                 <input type="hidden" name="question_id" id="question_id" ng-model="question_id" value="{{id}}" />
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">English Title</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="en_title" id="en_title" ng-model="en_title" value="{{en_title}}" ng-required="true" />
+                                       <span class="text-danger" ng-show="saveQuestionForm.en_title.$touched && saveQuestionForm.en_title.$error.required">English title is required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Arabic Title:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="ar_title" id="ar_title" ng-model="ar_title" value="{{ar_title}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="saveQuestionForm.ar_title.$touched && saveQuestionForm.ar_title.$error.required">Arabic title is required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Events</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="events" ng-model="events" ng-required="true">
+                                            <option ng-repeat="x in eventList" value="{{x._id}}" >{{x.event_male_en}}</option>
+                                        </select>
+                                        <span class="text-danger" ng-show="saveQuestionForm.events.$touched && saveQuestionForm.events.$error.required">Please select event.</span>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                 <button type="button" class="btn btn-default" ng-click="goToQuestionList();">Cancel</button>
+                                 <button type="submit" class="btn btn-info pull-right" ng-disabled="saveQuestionForm.$invalid">Save</button>
+                              </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

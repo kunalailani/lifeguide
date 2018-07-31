@@ -1,0 +1,110 @@
+<div class="wrapper" ng-controller="menusCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Save Menus</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Save Menus</h3>
+                        </div>
+                        <div class="box-body">
+                            <form name="menuForm" class="form-horizontal submit-form ng-pristine ng-invalid ng-invalid-required" action="admin/menus/save/" method="post" ng-submit="saveMenus();" id="menuForm">
+                                <input type="hidden" name="id" id="id" value="{{id}}">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="title" id="title" ng-model="title">
+                                       <input type="text" style="display: none;" class="form-control" name="order_no" id="order_no" ng-model="order_no"> 
+                                       <input type="text" style="display: none;" class="form-control" name="location" id="location" ng-model="location">   
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                 <button type="button" class="btn btn-default" ng-click="reloadPage();">Cancel</button>
+                                 <button type="submit"  class="btn btn-info pull-right" ng-disabled="menuForm.$invalid" disabled="disabled">Save</button>
+                              </div>
+                            </form>
+                        </div>
+                            <hr class="fvf"/>
+                            <style type="text/css">
+                                
+.fvf {
+    border: 5px solid antiquewhite;
+}
+
+li.menusListsOrder{
+    list-style: none;
+    font-size: large;
+    border: 1px solid;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    cursor: move;
+}
+                            </style>
+                        <div class="box-header" style="margin-top: 10px">
+                            <h3 class="box-title">Main Menus Listing</h3>
+                        </div>
+                        <div class="box-body">
+                            <table id="mainMenusListing" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Title</th>
+                                        <th>Order No</th>
+                                        <th>Edit</th>
+                                        <th>Edit SubMenus</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr  ng-repeat="t in menusLists">
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{t.title}}</td>
+                                        <td>{{t.order_no}}</td>
+                                        <td>
+                                            <a href="javascript:void(0)"><i class="fa fa-pencil" data-id="{{t._id}}" ng-click="editMenu(t._id)"></i></a>
+                                        </td>
+                                        <td>
+                                          <a href="#/edit-sub-menu?id={{t._id}}"><i class="fa fa-pencil" data-id="{{t._id}}" ></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                     <tr>
+                                        <th></th>
+                                        <th>Title</th>
+                                        <th>Order No</th>
+                                        <th>Edit</th>
+                                        <th>Edit SubMenus</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>  
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                          <h3 class="box-title">Header Menus Ordering</h3>
+                        </div>
+                        <div class="box-body">
+                            <ul id="sortable">
+                              <li class="ui-state-default menusListsOrder"  ng-repeat="t in menusLists" data-orderno="{{t.order_no}}" data-id="{{t._id}}"></span>{{t.title}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">

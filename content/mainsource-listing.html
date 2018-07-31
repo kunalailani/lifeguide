@@ -1,0 +1,83 @@
+<div class="wrapper" ng-controller="mainsourcelistCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Main Source <small>Listing</small></h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-primary">
+                        
+                        <div class="box-body">
+                            <div class="alert alert-success alert-dismissible" ng-if="(success_green != false)">
+                                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    {{success_green}}
+                            </div>
+                            <table id="mainsourceListing" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Type</th> 
+                                        <th>Name</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th></th>
+                                        <th>Type</th> 
+                                        <th>Name</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div ng-include="'content/includes/footer.html'"></div>
+</div>
+<script>
+
+$(document).on('click','#delete-mainsource',function(){
+    var delete_id = $(this).attr('data-id');
+      
+    $.ajax({
+            
+      url:api_url+"admin/delete-mainsource/"+delete_id,
+      method:"GET",
+      success: function(res){
+        location.reload();
+      }
+        
+    });  
+});
+
+    $("#mainsourceListing").DataTable({
+        processing: true,
+        serverSide: true,
+        lengthChange: false,
+        ajax: {
+            beforeSend: function (request) {
+                //var authorization = localStorage.getItem('token');
+                //request.setRequestHeader("authorization", authorization);
+                request.setRequestHeader("Content-Type", "application/json");
+            },
+            url: api_url + 'admin/mainsource-listing',
+            method: "POST",
+            data: function (d) {
+                return JSON.stringify(d);
+            }
+        }
+    });
+</script>

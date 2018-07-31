@@ -1,0 +1,63 @@
+<div class="wrapper" ng-controller="appLanguageCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Save App Language</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Save App Language</h3>
+                        </div>
+                        <div class="box-body">
+                            <form name="languageLabelForm" class="form-horizontal submit-form" action="admin/language/save-label/" method="post" ng-submit="saveLanguageLabel();" id="languageLabelForm">
+                                <input type="hidden" name="language_label" id="language_label" ng-model="language_label" value="{{id}}">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Male Label (English)</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="male_en"  id="male_en" ng-model="male_en" value="{{male_en}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="languageLabelForm.male_en.$touched && languageLabelForm.male_en.$error.required">This Field is required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Female Label (English)</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="female_en"  id="female_en" ng-model="female_en" value="{{female_en}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="languageLabelForm.female_en.$touched && languageLabelForm.female_en.$error.required">This Field is required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Male Label (Arabic)</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="male_ar"  id="male_ar" ng-model="male_ar" value="{{male_ar}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="languageLabelForm.male_ar.$touched && languageLabelForm.male_ar.$error.required">This Field is required.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Female Label (Arabic)</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="female_ar"  id="female_ar" ng-model="female_ar" value="{{female_ar}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="languageLabelForm.female_ar.$touched && languageLabelForm.female_ar.$error.required">This Field is required.</span>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                 <button type="button" class="btn btn-default" ng-click="goToAppLanguageList();">Cancel</button>
+                                 <button type="submit" class="btn btn-info pull-right" ng-disabled="languageLabelForm.$invalid">Save</button>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,161 @@
+<div class="wrapper" ng-controller="HeaderFooterCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1> Application Settings </h1>
+        </section>
+        <section class="content">
+                <div class="alert alert-success alert-dismissible" ng-if="(success_green != false)">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        {{success_green}}
+                </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Application Settings</h3>
+                        </div>
+                        <div class="box-body">
+                            
+                            <form name="HeadFootForm" class="form-horizontal submit-form" action="admin/header-footer/save/" method="post" enctype="multipart/form-data" ng-submit="saveHeaderFooter();" id="HeadFootForm">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Address</label>
+                                    <div class="col-sm-6">
+                                       <input type="text" class="form-control" name="address" id="address" ng-model="address" value="{{address}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="HeadFootForm.address.$touched && HeadFootForm.first_name.$error.required">Please enter valid Address Details.</span>
+                                        
+                                    </div>
+                                    <div class="col-sm-4">
+                                            <span>Visibility <input type="checkbox"  name="address_status" id="address_status" ng-model="address_status" value="" /></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Timing</label>
+                                    <div class="col-sm-6">
+                                       <input type="text" class="form-control" name="timing" id="timing" ng-model="timing" value="{{timing}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="HeadFootForm.timing.$touched && (HeadFootForm.timing.$error.timing || HeadFootForm.timing.$error.required)">Please enter valid Timing Details.</span>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                            <span>Visibility <input type="checkbox"  name="timing_status" id="timing_status" ng-model="timing_status" value="" /></span>
+                                    </div>
+                                </div>
+                                 
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Contact</label>
+                                    <div class="col-sm-6">
+                                       <input type="text" class="form-control" name="contact" id="contact" ng-model="contact" value="{{contact}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="HeadFootForm.contact.$touched && (HeadFootForm.contact.$error.contact || HeadFootForm.contact.$error.required)">Please enter valid Contact Details.</span>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                            <span>Visibility <input type="checkbox"  name="contact_status" id="contact_status" ng-model="contact_status" value="" /></span>
+                                    </div>
+                                </div>
+                                 
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Footer Text</label>
+                                    <div class="col-sm-6">
+                                       <input type="text" class="form-control" name="footer_text" id="footer_text" ng-model="footer_text" value="{{footer_text}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="HeadFootForm.footer_text.$touched && (HeadFootForm.footer_text.$error.footer_text || HeadFootForm.footer_text.$error.required)">Please enter valid Footer Text.</span>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">User Property Display Limit</label>
+                                    <div class="col-sm-6">
+                                       <input type="number" class="form-control" min="0" name="user_property_display_limit" id="user_property_display_limit" ng-model="user_property_display_limit" value="{{user_property_display_limit}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="HeadFootForm.user_property_display_limit.$touched && (HeadFootForm.user_property_display_limit.$error.user_property_display_limit || HeadFootForm.user_property_display_limit.$error.required)">Please enter valid User Property Display Limit Details.</span>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                            <span>Visibility <input type="checkbox"  name="user_property_display_status" id="user_property_display_status" ng-model="user_property_display_status" value="" /></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Agent Property Display Limit</label>
+                                    <div class="col-sm-6">
+                                       <input type="number" class="form-control" min="0" name="agent_property_display_limit" id="agent_property_display_limit" ng-model="agent_property_display_limit" value="{{agent_property_display_limit}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="HeadFootForm.agent_property_display_limit.$touched && (HeadFootForm.agent_property_display_limit.$error.agent_property_display_limit || HeadFootForm.agent_property_display_limit.$error.required)">Please enter valid Agent Property Display Limit Details.</span>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                            <span>Visibility <input type="checkbox"  name="agent_property_display_status" id="agent_property_display_status" ng-model="agent_property_display_status" value="" /></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Rental Property Display Limit</label>
+                                    <div class="col-sm-6">
+                                       <input type="number" class="form-control" min="0" name="rent_property_display_limit" id="rent_property_display_limit" ng-model="rent_property_display_limit" value="{{rent_property_display_limit}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="HeadFootForm.rent_property_display_limit.$touched && (HeadFootForm.rent_property_display_limit.$error.rent_property_display_limit || HeadFootForm.rent_property_display_limit.$error.required)">Please enter valid Rental Property Display Limit Details.</span>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                            <span>Visibility <input type="checkbox"  name="rent_property_display_status" id="rent_property_display_status" ng-model="rent_property_display_status" value="" /></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Home Page Background Image</label>
+                                    <div class="col-sm-6">
+                                       <input type="file" class="form-control" name="home_img" id="home_img" ng-model="home_img" value="{{home_img}}" onchange="getURL(this);" />
+                                        <span class="text-danger" ng-show="HeadFootForm.search_img.$touched && HeadFootForm.search_img.$error.required">Home page background image is required</span>
+                                        <img src="{{search_img}}" id="preview-sarch-image" />
+                                        <input type="hidden" name="search_img" id="search_img" value="{{search_img}}" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Pre registration Image</label>
+                                    <div class="col-sm-6">
+                                       <input type="file" class="form-control" name="registration_img" id="registration_img" ng-model="registration_img" value="{{registration_img}}" onchange="resiterURL(this);" />
+                                        <span class="text-danger" ng-show="HeadFootForm.register_img.$touched && HeadFootForm.register_img.$error.required">Home page background image is required</span>
+                                        <img src="{{register_img}}" id="preview-register-image" />
+                                        <input type="hidden" name="register_img" id="register_img" value="{{register_img}}" />
+                                    </div>
+                                </div>
+
+                                <div class="box-footer">
+                                 <button type="submit" class="btn btn-info pull-right" ng-disabled="HeadFootForm.$invalid">Save</button>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script type="text/javascript">
+    function getURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $('#preview-sarch-image').attr('src', e.target.result);
+          $("#search_img").val(e.target.result);  
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    function resiterURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $('#preview-register-image').attr('src', e.target.result);
+          $("#register_img").val(e.target.result);  
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+</script>

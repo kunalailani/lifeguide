@@ -1,0 +1,44 @@
+.custom-error{
+	display: none;
+}
+.content-wrapper{
+	min-height: 100vh !important;
+}
+img.small-view {
+    height: 50px;
+    width: 50px;
+}
+img.four-images {
+    max-height: 100%;
+    max-width: 100%;
+}
+span.red-span{
+    background: red;
+    font-weight: bold;
+    color: white;
+    border-radius: 25px;
+    padding: 5px;
+    float: right;
+}
+span.green-span{
+    background: green;
+    font-weight: bold;
+    color: white;
+    border-radius: 25px;
+    padding: 5px;
+    float: right;
+}
+.user-settings-email-and-notification li {
+	margin: 20px;
+	list-style-type: none;
+}
+img.image-reatangle{
+    width: 200px;
+    height: 200px;
+}
+
+@media only screen and (max-device-width: 480px) {
+    .nav.nav-tabs.navigation-custom-class li{
+        width: 100%;
+    }
+}

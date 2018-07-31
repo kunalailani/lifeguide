@@ -1,0 +1,61 @@
+<div class="wrapper" ng-controller="AdminLogCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>  Admin Activity Log </h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title"> Admin Activity Log</h3>
+                        </div>
+                        <div class="box-body">
+                            <form name="subAdminForm" class="form-horizontal submit-form" action="" method="post" ng-submit="saveSubAdmin();"
+                                id="subAdminForm">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Admin id</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="admin_id" ng-minlength="8" id="admin_id" ng-model="admin_id" value="{{admin_id}}"
+                                            ng-required="true" />
+                                        <span class="text-danger" ng-show="subAdminForm.admin_id.$touched && subAdminForm.admin_id.$error.required">Admin id is required.</span>
+                                    </div>
+                                </div>
+                              
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" name="email" id="email" ng-model="email" value="{{email}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="subAdminForm.email.$touched && (subAdminForm.email.$error.email || subAdminForm.email.$error.required)">Please enter valid email id.</span>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" name="name" id="name" ng-minlength="6" ng-model="name" value="{{name}}"
+                                            ng-required="true" />
+                                        <span class="text-danger" ng-show="subAdminForm.name.$touched && subAdminForm.name.$error.required">minimum 6 character required.</span>
+                                    </div>
+                                </div>                                                 
+                              
+                                <div class="box-footer">
+                                    <button type="button" class="btn btn-default" ng-click="goToAdminList();">Cancel</button>
+                                    <button type="submit" class="btn btn-info pull-right" ng-disabled="subAdminForm.$invalid">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

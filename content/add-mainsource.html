@@ -1,0 +1,65 @@
+<div class="wrapper" ng-controller="MainsourceCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1> Save Main Source Details </h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Save Main Source Details</h3>
+                        </div>
+                        <div class="box-body">
+                            <form name="mainsourceForm" class="form-horizontal submit-form" action="admin/add-mainsource/" method="post" ng-submit="saveMainsource();" id="mainsourceForm">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Source Type</label>
+                                    <div class="col-sm-10">
+                                    <select class="form-control" name="type" id="type" ng-model="type" ng-required="true">
+                                        <option value="primary">Primary</option>
+                                        <option value="secondary">Secondary</option>
+                                        <option value="third">Third</option>
+                                    </select>
+                                        <span class="text-danger" ng-show="mainsourceForm.type.$touched && mainsourceForm.type.$error.required">type required.</span>
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Source Name</label>
+                                    <div class="col-sm-10">
+                                       <select class="form-control" name="source_name" id="source_name" ng-model="source_name" ng-required="true">
+                                            <option value="religion">Religion</option>
+                                            <option value="pet">Pet</option>
+                                            <option value="philosophy">Philosophy</option>
+                                            <option value="science">Science</option>
+                                        </select>
+                                        <span class="text-danger" ng-show="mainsourceForm.source_name.$touched && mainsourceForm.source_name.$error.required">source_name required.</span>
+                                    </div>
+                                </div> -->
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Source Name</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="source_name" id="source_name" ng-model="user.source_name" value="{{source_name}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="mainsourceForm.source_name.$touched && mainsourceForm.source_name.$error.required"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="box-footer">
+                                 <button type="button" class="btn btn-default" ng-click="goToMainsourceList();">Cancel</button>
+                                 <button type="submit" class="btn btn-info pull-right" ng-disabled="mainsourceForm.$invalid">Save</button>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="wrapper" ng-controller="userMetaQuestionListingCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1> Save User Question </h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Save User Question</h3>
+                        </div>
+                        <div class="box-body">
+                            <form name="metaQuestionForm" class="form-horizontal submit-form" action="admin/user-meta-question/save/" method="post" ng-submit="saveMetaQuestion();" id="metaQuestionForm">
+                                <input type="hidden" name="question_id" ng-model="question_id" id="question_id" value="{{id}}" />
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">English Question Title</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="input_label_en" id="input_label_en" ng-model="input_label_en" value="{{input_label_en}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="metaQuestionForm.input_label_en.$touched && metaQuestionForm.input_label_en.$error.required">Please enter english title
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Arabic Question Title</label>
+                                    <div class="col-sm-10">
+                                       <input type="text" class="form-control" name="input_label_ar" id="input_label_ar" ng-model="input_label_ar" value="{{input_label_ar}}" ng-required="true" />
+                                        <span class="text-danger" ng-show="metaQuestionForm.input_label_ar.$touched && metaQuestionForm.input_label_ar.$error.required">Please enter arabic title</span>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                 <button type="button" class="btn btn-default" ng-click="goToMetaQuestionList();">Cancel</button>
+                                 <button type="submit" class="btn btn-info pull-right" ng-disabled="metaQuestionForm.$invalid">Save</button>
+                              </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

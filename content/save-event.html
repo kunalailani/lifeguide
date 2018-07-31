@@ -1,0 +1,68 @@
+<div class="wrapper" ng-controller="eventCtrl">
+   <header class="main-header">
+      <div ng-include="'content/includes/top-bar.html'"></div>
+   </header>
+   <aside class="main-sidebar">
+      <section class="sidebar">
+         <div ng-include="'content/includes/leftbar.html'"></div>
+      </section>
+   </aside>
+   <div class="content-wrapper">
+      <section class="content-header">
+         <h1>Events</h1>
+      </section>
+      <section class="content">
+         <div class="row">
+            <div class="col-xs-12">
+               <div class="box box-primary">
+                  <div class="box-body">
+                     <div class="col-md-12">
+                           <div class="box-header with-border">
+                              <h3 class="box-title">Save Events</h3>
+                           </div>
+                           <form class="form-horizontal submit-form" action="admin/event/save/" method="post" ng-submit="saveEvent();" id="saveEventForm" name="saveEventForm">
+                              <input type="hidden" name="event_id" id="event_id" ng-model="event_id" value="{{id}}" />
+                              <div class="box-body">
+                                 <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Event Title English For Male</label>
+                                    <div class="col-sm-10">
+                                       <textarea class="form-control" name="event_male_en" id="event_male_en" ng-model="event_male_en" ng-required="true">{{event_male_en}}</textarea>
+                                       <span class="text-danger" ng-show="(saveEventForm.event_male_en.$invalid && saveEventForm.event_male_en.$touched)">This field is required.</span>
+                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Event Title Arabic For Male</label>
+                                    <div class="col-sm-10">
+                                       <textarea class="form-control" name="event_male_ar" id="event_male_ar" ng-model="event_male_ar" ng-required="true">{{event_male_ar}}</textarea>
+                                       <span class="text-danger" ng-show="(saveEventForm.event_male_ar.$invalid && saveEventForm.event_male_ar.$touched)">This field is required.</span>
+                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Event Title English for Female</label>
+                                    <div class="col-sm-10">
+                                       <textarea class="form-control" name="event_female_en" id="event_female_en" ng-model="event_female_en" ng-required="true">{{event_female_en}}</textarea>
+                                        <span class="text-danger" ng-show="(saveEventForm.event_female_en.$invalid && saveEventForm.event_female_en.$touched)">This field is required.</span>
+                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Event Title Arabic for Female</label>
+                                    <div class="col-sm-10">
+                                       <textarea class="form-control" name="event_female_ar" id="event_female_ar" ng-model="event_female_ar" ng-required="true">{{event_female_ar}}</textarea>
+                                        <span class="text-danger" ng-show="(saveEventForm.event_female_ar.$invalid && saveEventForm.event_female_ar.$touched)">This field is required.</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="box-footer">
+                                 <button type="button" class="btn btn-default" ng-click="goToEventList();">Cancel</button>
+                                 <button type="submit" class="btn btn-info pull-right" ng-disabled="(saveEventForm.$invalid)">Save</button>
+                              </div>
+                           </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+   </div>
+   <div ng-include="'content/includes/footer.html'"></div>
+</div>

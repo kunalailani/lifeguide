@@ -1,0 +1,123 @@
+﻿<div class="wrapper" ng-controller="packageCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1> Add Package </h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Add Package</h3>
+                        </div>
+                        <div class="box-body">
+                            <form class="form-horizontal submit-form" action="admin/package/save/" method="post" ng-submit="savePackage();" id="savePackageForm" name="savePackageForm">
+                                <input type="hidden" name="package_id" id="package_id" ng-model="package_id" value="{{id}}">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="row form-group text-center">
+                                            <h1>English</h1>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-3">
+                                                <label id="title" class="control-label">Title:</label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="title_en" id="title_en" ng-model="title_en" value="{{title_en}}" />
+                                                <span class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-3">
+                                                <label id="description_en" class="control-label">Description:</label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <div class="row form-group" ng-repeat="d in description_en track by $index">
+                                                    <div class="col-sm-12">
+                                                        <input type="text" class="form-control description_en" name="description_en" id="description_en"  value="{{description_en[$index]}}" />
+                                                        <span class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-3">
+                                                <label class="control-label">Plan Validity(in Months):</label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="plan_validity" id="plan_validity" ng-model="plan_validity" value="{{plan_validity}}" />
+                                                <span class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-3">
+                                                <label  class="control-label">Price:</label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="price" id="price" ng-model="price" value="{{price}}" />
+                                                <span class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-3">
+                                                <label id="is_purchasable_by_points" class="control-label text-nowrap">Redemption Points:</label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <input type="checkbox" class="" name="is_purchasable_by_points" id="is_purchasable_by_points" ng-model="is_purchasable_by_points" value="{{is_purchasable_by_points}}" />
+                                            </div>
+                                            <div class="col-sm-8" *ngIf="">
+                                                <input type="text" class="form-control" name="redemption_points" id="redemption_points" ng-model="redemption_points" ng-hide="!is_purchasable_by_points" value="{{redemption_points}}" />
+                                                <span class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row form-group">
+                                            <div class="col-sm-6">
+                                            <h1 class="text-center">Arabic</h1>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="title_ar" id="title_ar" ng-model="title_ar" />
+                                                <span class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-12">
+                                                <div class="row form-group" ng-repeat="d in description_ar track by $index">
+                                                    <div class="col-sm-8" >
+                                                        <input type="text" class="form-control description_ar" name="description_ar" id="description_ar"  value="{{description_ar[$index]}}" />
+                                                        <span class="text-danger"></span>
+                                                    </div>
+                                                    <div class="col-sm-2" ng-if="$index == 0">
+                                                        <button type="button" class="btn btn-primary" ng-click="addNew()" id="addDescription" name="addDescription">Add</button>
+                                                    </div>
+                                                    <div class="col-sm-1" ng-if="$index != 0">
+                                                        <button type="button" class="btn btn-primary" ng-click="remove($index)" id="removeDescription" name="removeDescription">Remove</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               <div class="box-footer">
+                                 <button type="button" class="btn btn-default" ng-click="goToPackageList();">Cancel</button>
+                                 <button type="submit" class="btn btn-info pull-right">Save</button>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

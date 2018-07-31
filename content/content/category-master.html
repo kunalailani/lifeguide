@@ -1,0 +1,44 @@
+<div class="wrapper" ng-controller="CategoryCtrl">
+    <header class="main-header">
+        <div ng-include="'content/includes/top-bar.html'"></div>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div ng-include="'content/includes/leftbar.html'"></div>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1> category-master</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Category-master</h3>
+                        </div>
+                        <div class="box-body">
+                            <form name="CategoryForm" class="form-horizontal submit-form" action="" method="post" ng-submit="saveCategory();"
+                                id="CategoryForm">                          
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" name="name" id="name" ng-minlength="6" ng-model="name" value="{{name}}"
+                                            ng-required="true" />
+                                        <span class="text-danger" ng-show="CategoryForm.name.$touched && CategoryForm.name.$error.required">Category is required.</span>
+                                    </div>
+                                </div>                                                 
+                              
+                                <div class="box-footer">
+                                    <button type="button" class="btn btn-default" ng-click="goToAdminList();">Cancel</button>
+                                    <button type="submit" class="btn btn-info pull-right" ng-disabled="CategoryForm.$invalid">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

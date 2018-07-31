@@ -1,0 +1,22 @@
+<div class="wrapper" ng-controller="userListingCtrl">
+   <header class="main-header">
+      <div ng-include="'content/includes/top-bar.html'"></div>
+   </header>
+   <aside class="main-sidebar">
+      <section class="sidebar">
+         <div ng-include="'content/includes/leftbar.html'"></div>
+      </section>
+   </aside>
+   <div class="content-wrapper">
+      <section class="content">
+        <div class="error-page">
+          <h2 class="headline text-yellow"> 404</h2>
+            <div class="error-content">
+              <h3><i class="fa fa-warning text-yellow"></i> Oops! Page not found.</h3>
+                <p>The Page You are looking for is either not available or out of service</p>
+            </div>
+        </div>
+      </section>    
+   </div>
+   <div ng-include="'content/includes/footer.html'"></div>
+</div>
